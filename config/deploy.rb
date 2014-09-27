@@ -12,7 +12,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 set :domain, '115.29.146.154'
 set :deploy_to, '/home/apps/jmvote'
-set :repository, 'git@github.com:DotHide/jmvote.git'
+set :repository, 'https://github.com/DotHide/jmvote.git'
 set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.

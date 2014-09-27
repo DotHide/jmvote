@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 # 基础必要的
 gem 'rails', '4.1.6'
