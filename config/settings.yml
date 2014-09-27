@@ -1,4 +1,5 @@
 defaults: &defaults
+  app_name: '同学会投票'
 
 development:
   <<: *defaults

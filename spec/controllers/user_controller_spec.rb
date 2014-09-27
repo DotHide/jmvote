@@ -40,13 +40,24 @@ describe UserController, :type => :controller do
            }.to change(User, :count).by(1)
         end
 
-        it "应该跳转至用户首页" do
+        it "应该跳转至'签到成功'页面" do
           post :do_enroll, :user => @user
-          expect(response).to redirect_to user_home_path(assigns[:user])
+          expect(response).to redirect_to user_signin_path(assigns[:user])
         end
+        # it "应该跳转至用户首页" do
+        #   post :do_enroll, :user => @user
+        #   expect(response).to redirect_to user_home_path(assigns[:user])
+        # end
       end
 
       context '用户登录（非首次参与时）' do
+        context '如果带有外部参数signin=1' do
+          it "应该跳转至'签到成功'页面" do
+            create(:user)
+            post :do_enroll, :user => attributes_for(:user), :signin => 1
+            expect(response).to redirect_to user_signin_path(assigns[:user])
+          end
+        end
         context '如果姓名变更时' do
           it "用户姓名字段数据应该更新" do
             @modify_user = create(:user)
@@ -65,6 +76,7 @@ describe UserController, :type => :controller do
         end
         context '如果用户姓名和班级均未变更时' do
           it "应该跳转至用户首页" do
+            create(:user)
             post :do_enroll, :user => attributes_for(:user)
             expect(response).to redirect_to user_home_path(assigns[:user])
           end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'user/enroll'
   get 'user/home/:id' => 'user#home', as: 'user_home'
+  get 'user/signin/:id' => 'user#signin', as: 'user_signin'
 
   post 'user/do_enroll'
 
