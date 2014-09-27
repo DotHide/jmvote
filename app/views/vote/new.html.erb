@@ -1,0 +1,58 @@
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <%= link_to "#{@class_name} 班 | 第 #{@round} 轮", '#' %>
+      </li>
+    </ul>
+  </div>
+</div>
+<%= simple_form_for @vote, :url => { :action => :create, :controller => :vote }, :method => :post, :validate => true do |f| -%>
+	<div class="voting_block col-xs-12 btn-group" data-toggle="buttons">
+		<ul class="voting_list">
+			<% @candidates.each do |candidate| %>
+				<li>
+					<span class="glyphicon glyphicon-user"></span>
+					<span class="username" id="<%= candidate.id %>"><%= candidate.name %></span>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<%= f.input :candidate_id, :as => :hidden %>
+	<%= f.input :user_id, :as => :hidden, input_html: { value: @user_id } %>
+	<%= f.input :round, :as => :hidden, input_html: { value: @round } %>
+	<%= f.input :class_name, :as => :hidden, input_html: { value: @class_name } %>
+	<div class="row text-center">
+		<%= f.submit '提交', :class => 'btn btn-primary' %>
+	</div>
+<% end -%>
+
+<script type="text/javascript">
+	$(function(){
+		$('.voting_list li').each(function(){		
+			var cd = $(this);
+			cd.bind('click', function(){
+				!cd.hasClass('active')? pick_cd(cd) : unpick_cd(cd);
+			})
+		})
+	})
+
+	function clear_all_cd(){
+		$('.voting_list li').each(function(){
+			var cd = $(this);
+			cd.removeClass('active');
+		})
+	}
+
+	function pick_cd(cd){
+		clear_all_cd();
+		cd.addClass('active');
+		var candidate_id = $('.voting_list li.active span.username').attr('id');
+		$('#vote_candidate_id').val(candidate_id);
+	}
+
+	function unpick_cd(cd){
+		cd.removeClass('active');
+		$('#vote_candidate_id').val('');
+	}
+</script>

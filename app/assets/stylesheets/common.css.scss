@@ -1,0 +1,83 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body { 
+	padding-top: 60px;
+}
+
+
+/* Voting List */
+
+.voting_block {
+	margin-right: 0;
+	margin-left: 0;
+	margin: 0 2px;
+	overflow: hidden;
+
+	.voting_list {
+		padding-left: 0;
+		list-style: none;
+
+		li {
+			float: left;
+			width: 20%;
+			height: 80px;
+			padding: 10px;
+			font-size: 10px;
+			line-height: 1.4;
+			text-align: center;
+			background-color: #f9f9f9;
+			border: 1px solid #fff;
+
+			.glyphicon {
+				margin-top: 5px;
+				margin-bottom: 10px;
+				font-size: 24px;
+			}
+			.username {
+				display: block;
+				text-align: center;
+				word-wrap: break-word;
+			}
+		}
+		
+		li.active {
+			background-color: #583e78;
+			color: white;
+		}
+	}
+}
+/*
+  Hide radio button (the round disc)
+  we will use just the label to create pushbutton effect
+*/
+input[type=radio] {
+    display:none; 
+    margin:10px;
+}
+ 
+/*
+  Change the look'n'feel of labels (which are adjacent to radiobuttons).
+  Add some margin, padding to label
+*/
+input[type=radio] + label {
+	display:inline-block;
+	margin:-2px;
+	padding: 14px 22px;
+	background-color: #e7e7e7;
+	border-color: #ddd;
+}
+/*
+ Change background color for label next to checked radio button
+ to make it look like highlighted button
+*/
+input[type=radio]:checked + label { 
+	background-image: none;
+	background-color: #583e78;
+	color: white;
+}
+
+#vote_success {
+	font-size: 44px;
+	color: green;
+}

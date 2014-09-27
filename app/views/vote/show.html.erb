@@ -1,0 +1,10 @@
+<div id="vote_success" class="row text-center">
+	<span class="glyphicon glyphicon-ok"></span>
+</div>
+<div class="row text-center">
+	<h2>投票成功</h2>
+	<p>感谢您的参与</p>
+</div>
+<div class="row text-center">
+	<p>您已投给：<%= User.find(@vote.candidate_id).name %> <span class="badge">+1</span></p>
+</div>

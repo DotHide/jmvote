@@ -1,0 +1,36 @@
+<h4 class="text-center">您好，<%= @user.name %></h4>
+<h2 class="text-center">进入第几轮</h2>
+<br>
+<div class="row center-block text-center">
+	<% 4.times do |index| %>
+		<input type="radio" name="round" id="round<%= index + 1 %>" value="<%= index + 1 %>" <%= 'checked' if index == 0 %>>
+		<label for="round<%= index + 1 %>">
+			<%= index + 1 %>
+		</label>
+	<% end %>
+</div>
+<div class="row center-block text-center">
+	<% 4.times do |index| %>
+		<input type="radio" name="round" id="round<%= index + 5 %>" value="<%= index + 5 %>">
+		<label for="round<%= index + 5 %>">
+			<%= index + 5 %>
+		</label>
+	<% end %>
+</div>
+<hr>
+<div class="form-group">
+  <div class="text-center">
+    <!-- <button type="submit" class="btn btn-primary">进入投票</button> -->
+    <%= link_to '进入投票', vote_new_path, id: 'vote', class: 'btn btn-primary', :onclick => 'vote();' %>
+  </div>
+</div>
+
+<script type="text/javascript">
+	function vote(){
+		var round = $('input[name=round]:checked').val();
+		var user_id = <%= @user.id %>;
+		var href = $('#vote').attr('href');
+		$('#vote').attr('href', href + '?round=' + round + '&user_id=' + user_id);
+		// alert($('#vote').attr('href'));
+	}
+</script>
