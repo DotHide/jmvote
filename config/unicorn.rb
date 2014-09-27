@@ -13,7 +13,7 @@ pid "#{Rails.root}/tmp/pids/unicorn.pid"
 stderr_path "#{Rails.root}/log/unicornerr.log"
 stdout_path "#{Rails.root}/log/unicornout.log"
 
-listen 5000, :tcp_nopush => false
+listen 5001, :tcp_nopush => false
 
 # 这里设置监听地址，将与nginx配置关联
 listen "/tmp/unicorn.jmvote.sock"
