@@ -41,6 +41,7 @@ class VoteController < ApplicationController
 
   def results
     top10_candidates_all = []
+    top10_candidates_all_with_winner = {}
     8.times do |index|
       sql_hash = Vote.select("candidate_id").where(:class_name => params[:class_name], :round => index + 1).group('candidate_id').count
       top10_candidates = []
@@ -53,6 +54,8 @@ class VoteController < ApplicationController
       top10_candidates_all << top10_candidates
     end
     @top10_candidates = top10_candidates_all
+
+    @top10_candidates_all_with_winner = 
   end
 
   private
