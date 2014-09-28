@@ -34,6 +34,9 @@ class VoteController < ApplicationController
 
   def show
   	@vote = Vote.find(params[:id])
+    user_id = @vote.user_id
+    round = @vote.round + 1
+    @next_round_vote_path = vote_new_path(:user_id => user_id, :round => round)
   end
 
   private

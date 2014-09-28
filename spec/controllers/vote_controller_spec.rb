@@ -89,6 +89,13 @@ describe VoteController, :type => :controller do
       get :show, :id => vote
       expect(response).to render_template :show
     end
+    it "应该持有下一轮链接地址" do
+      vote = create(:vote)
+      get :show, :id => vote
+      user_id = assigns(:vote).user_id
+      round = assigns(:vote).round + 1
+      expect(assigns(:next_round_vote_path)).to eq vote_new_path(:user_id => user_id, :round => round)
+    end
   end
 
 end

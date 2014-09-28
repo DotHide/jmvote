@@ -12,6 +12,7 @@
 		<ul class="voting_list">
 			<% @candidates.each do |candidate| %>
 				<li>
+					<h4 class="pull-left"><%= candidate.id %></h4>
 					<span class="glyphicon glyphicon-user"></span>
 					<span class="username" id="<%= candidate.id %>"><%= candidate.name %></span>
 				</li>
