@@ -39,6 +39,22 @@ class VoteController < ApplicationController
     @next_round_vote_path = vote_new_path(:user_id => user_id, :round => round)
   end
 
+  def results
+    top10_candidates_all = []
+    8.times do |index|
+      sql_hash = Vote.select("candidate_id").where(:class_name => params[:class_name], :round => index + 1).group('candidate_id').count
+      top10_candidates = []
+      sql_hash.each_pair do |key, value|
+        candidate_hash = {}
+        candidate_hash[:value] = value
+        candidate_hash[:name] = User.find(key).name
+        top10_candidates << candidate_hash
+      end
+      top10_candidates_all << top10_candidates
+    end
+    @top10_candidates = top10_candidates_all
+  end
+
   private
   	def vote_params
   		params.require(:vote).permit(:user_id, :round, :candidate_id, :class_name)

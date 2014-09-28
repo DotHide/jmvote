@@ -98,4 +98,14 @@ describe VoteController, :type => :controller do
     end
   end
 
+  describe "投票结果(result)" do
+    it "应该持有top10数据(查看某班某轮全部投票结果)" do
+      get :results, :class_name => 'A'
+      top10_candidates = []
+      8.times do |index|
+        top10_candidates << Vote.select("candidate_id").where(:class_name => assigns[:class_name], :round => index + 1).group('candidate_id').count
+      end
+      expect(assigns(:top10_candidates)).to eq top10_candidates
+    end
+  end
 end

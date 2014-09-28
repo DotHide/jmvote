@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'vote/new'
   get 'votes/:id' => 'vote#show', as: :vote
   post 'vote/create'
+  get 'vote/results'
 
   get 'user/enroll'
   get 'user/home/:id' => 'user#home', as: 'user_home'
