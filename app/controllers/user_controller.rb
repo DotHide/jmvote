@@ -9,6 +9,8 @@ class UserController < ApplicationController
       if !cookies[:mobile].nil?
         @user = User.find_by_mobile(cookies[:mobile])
         redirect_to user_home_path(@user, :half => half)
+      else
+        @user = User.new
       end
     end
   end
