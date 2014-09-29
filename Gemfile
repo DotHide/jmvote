@@ -27,8 +27,7 @@ group :development do
 end
 
 # 测试必要的
-group :test do
-	gem 'faker', '~> 1.1.2'
+group :test do, 
 	gem 'capybara', '~> 2.1.0'
 	gem 'database_cleaner', '~> 1.0.1'
 	gem 'launchy', '~> 2.3.0'
@@ -44,6 +43,7 @@ end
 gem 'mina', '~> 0.3.0'
 
 # 常用组件
+gem 'faker', '~> 1.1.2'
 gem 'simple_form', :git => 'https://github.com/plataformatec/simple_form.git', :branch => 'master' # 表单
 gem 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git', :branch => 'master', :submodules => true # 日期选择控件
 gem 'momentjs-rails', '>= 2.8.1' # 时间处理工具（被datetimepicker依赖）
