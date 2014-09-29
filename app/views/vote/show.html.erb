@@ -6,8 +6,12 @@
 	<p>感谢您的参与</p>
 </div>
 <div class="row text-center">
-	<p>您已投给：<%= User.find(@vote.candidate_id).name %> <span class="badge">+1</span></p>
+	<p>您已投给：<%= Candidate.find(@vote.candidate_id).name %> <span class="badge">+1</span></p>
 </div>
 <div class="row text-center">
-	<%= link_to '进入下一轮', @next_round_vote_path, :class => 'btn btn-primary' %>
+	<% if @vote.round % 4 == 0%>
+		
+	<% else %>
+		<%= link_to '进入下一轮', @next_round_vote_path, :class => 'btn btn-primary' %>
+	<% end %>
 </div>

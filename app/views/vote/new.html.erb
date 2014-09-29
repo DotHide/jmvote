@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li class="active">
-        <%= link_to "#{@class_name} 班 | 第 #{@round} 轮", '#' %>
+        <%= link_to "#{@class_name} 班 丨 第 #{@round} 轮 - #{@round_title}", '#' %>
       </li>
     </ul>
   </div>
@@ -12,9 +12,9 @@
 		<ul class="voting_list">
 			<% @candidates.each do |candidate| %>
 				<li>
-					<h4 class="pull-left"><%= candidate.id %></h4>
+					<p style="margin:0;"><%= candidate[:no] %></p>
 					<span class="glyphicon glyphicon-user"></span>
-					<span class="username" id="<%= candidate.id %>"><%= candidate.name %></span>
+					<span class="username" id="<%= candidate[:id] %>"><%= candidate[:name] %></span>
 				</li>
 			<% end %>
 		</ul>
@@ -22,7 +22,8 @@
 	<%= f.input :candidate_id, :as => :hidden %>
 	<%= f.input :user_id, :as => :hidden, input_html: { value: @user_id } %>
 	<%= f.input :round, :as => :hidden, input_html: { value: @round } %>
-	<%= f.input :class_name, :as => :hidden, input_html: { value: @class_name } %>
+	<%= f.input :class_name, :as => :hidden, input_html: { value: @class_no } %>
+
 	<div class="row text-center">
 		<%= f.submit '提交', :class => 'btn btn-primary' %>
 	</div>

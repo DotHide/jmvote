@@ -2,18 +2,10 @@
 <h2 class="text-center">进入第几轮</h2>
 <br>
 <div class="row center-block text-center">
-	<% 4.times do |index| %>
-		<input type="radio" name="round" id="round<%= index + 1 %>" value="<%= index + 1 %>" <%= 'checked' if index == 0 %>>
-		<label for="round<%= index + 1 %>">
-			<%= index + 1 %>
-		</label>
-	<% end %>
-</div>
-<div class="row center-block text-center">
-	<% 4.times do |index| %>
-		<input type="radio" name="round" id="round<%= index + 5 %>" value="<%= index + 5 %>">
-		<label for="round<%= index + 5 %>">
-			<%= index + 5 %>
+	<% @rounds.each do |round| %>
+		<input type="radio" name="round" id="round<%= round[:id] %>" value="<%= round[:id] %>" <%= 'checked' if round[:id] == 1 %>>
+		<label for="round<%= round[:id] %>">
+			<span class="pull-left"><%= round[:id] %></span>）<%= round[:title] %>
 		</label>
 	<% end %>
 </div>
@@ -26,11 +18,11 @@
 </div>
 
 <script type="text/javascript">
+	var href_origin = $('#vote').attr('href');
 	function vote(){
 		var round = $('input[name=round]:checked').val();
 		var user_id = <%= @user.id %>;
-		var href = $('#vote').attr('href');
-		$('#vote').attr('href', href + '?round=' + round + '&user_id=' + user_id);
+		$('#vote').attr('href', href_origin + '?round=' + round + '&user_id=' + user_id);
 		// alert($('#vote').attr('href'));
 	}
 </script>

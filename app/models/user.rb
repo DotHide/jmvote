@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 	end
 
 	validates :mobile, format: { :with => /\A1\d{10}\z/ }
-	validates :class_name, format: { :with => /(A|B){1}/ }
+	validates :class_name, format: { :with => /(E|W){1}/ }
 end

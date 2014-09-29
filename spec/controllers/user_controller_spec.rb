@@ -3,13 +3,26 @@ require 'spec_helper'
 describe UserController, :type => :controller do
 
   describe '用户参与(enroll)' do
-    it "应该分配一个新用户实例" do
-      get :enroll
-      expect(assigns(:user)).to be_a_new(User)
+    context '如果用户未签到' do
+      it "应该分配一个新用户实例" do
+        get :enroll
+        expect(assigns(:user)).to be_a_new(User)
+      end
+      it "应该渲染'用户参与'页面" do
+        get :enroll
+        expect(response).to render_template(:enroll)
+      end
     end
-    it "应该渲染'用户参与'页面" do
-      get :enroll
-      expect(response).to render_template(:enroll)
+    context '如果用户已签到' do
+      before(:each) do
+        get :enroll, half: 1
+      end
+      it "用户cookie已植入" do
+        expect(assigns(:user_mobile_cookie)).to eq cookies[:mobile]
+      end
+      it "只显示上半场的轮数" do
+        expect(page).to have_content('青春偶像奖')
+      end
     end
   end
 
