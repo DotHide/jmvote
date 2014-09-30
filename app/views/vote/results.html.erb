@@ -28,7 +28,7 @@
                     },
                     xAxis: [{
                         type: 'category',
-                        data: <%= item[:top10][:name].to_json.html_safe %>
+                        data: <%= item[:top][:name].to_json.html_safe %>
                     }],
                     yAxis: [{
                         type : 'value'
@@ -43,7 +43,7 @@
                                 }
                             }
                         },
-                        data: <%= item[:top10][:count].to_json.html_safe %>
+                        data: <%= item[:top][:count].to_json.html_safe %>
                     }]
                 };
                 // 为echarts对象加载数据 
@@ -93,7 +93,7 @@
                     },
                     xAxis: [{
                         type: 'category',
-                        data: <%= item[:top10][:name].to_json.html_safe %>
+                        data: <%= item[:top][:name].to_json.html_safe %>
                     }],
                     yAxis: [{
                         type : 'value'
@@ -108,7 +108,7 @@
                                 }
                             }
                         },
-                        data: <%= item[:top10][:count].to_json.html_safe %>
+                        data: <%= item[:top][:count].to_json.html_safe %>
                     }]
                 };
                 // 为echarts对象加载数据 
