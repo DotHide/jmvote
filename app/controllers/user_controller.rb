@@ -9,7 +9,12 @@ class UserController < ApplicationController
         # 判断cookies是否存在
         if !cookies[:mobile].nil?
           @user = User.find_by_mobile(cookies[:mobile])
-          redirect_to user_home_path(@user, :half => half)
+          if @user.nil?
+            cookies[:mobile] = ''
+            @user = User.new
+          else
+            redirect_to user_home_path(@user, :half => half)
+          end
         else
           @user = User.new
         end
