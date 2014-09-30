@@ -1,67 +1,121 @@
 <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
 <div class="row text-center"><h2>投票结果（<%= @half %>）</h2></div>
 <hr>
-<div class="row">
-    <%= 2.times do |index| %>
-        <div class="col-xs-6">
-            <div id="chart<%= index + 1 %>" style="height:200px"></div>
-        </div>
-    <% end %>
-</div>
-<div class="row">
-    <%= 2.times do |index| %>
-        <div class="col-xs-6">
-            <div id="chart<%= index + 3 %>" style="height:200px"></div>
-        </div>
-    <% end %>
-</div>
-<script type="text/javascript">
-    // 路径配置
-    require.config({
-        paths:{ 
-            'echarts' : 'http://echarts.baidu.com/build/echarts',
-            'echarts/chart/bar' : 'http://echarts.baidu.com/build/echarts'
-        }
-    });
+<% if @half == '测试轮' %>
+    <div id="chart1" style="height:400px"></div>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths:{ 
+                'echarts' : 'http://echarts.baidu.com/build/echarts',
+                'echarts/chart/bar' : 'http://echarts.baidu.com/build/echarts'
+            }
+        });
 
-    // 使用
-    require(
-        [
-            'echarts',
-            'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
-        ],
-        function (ec) {
-          <% @top10_candidates_all_rounds.each_with_index do |item, index| %>
-            // 基于准备好的dom，初始化echarts图表
-            var chart<%= index + 1 %> = ec.init(document.getElementById('chart<%= index + 1 %>')); 
-            var option<%= index + 1 %> = {
-                title: {
-                    text: "<%= item[:title] %>"
-                },
-                xAxis: [{
-                    type: 'category',
-                    data: <%= item[:top10][:name].to_json.html_safe %>
-                }],
-                yAxis: [{
-                    type : 'value'
-                }],
-                series: [{
-                    "name":"得票数",
-                    "type":"bar",
-                    itemStyle: {
-                        normal: {
-                            label: {
-                                show: true
-                            }
-                        }
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+              <% @top10_candidates_all_rounds.each_with_index do |item, index| %>
+                // 基于准备好的dom，初始化echarts图表
+                var chart<%= index + 1 %> = ec.init(document.getElementById('chart<%= index + 1 %>')); 
+                var option<%= index + 1 %> = {
+                    title: {
+                        text: "<%= item[:title] %>"
                     },
-                    data: <%= item[:top10][:count].to_json.html_safe %>
-                }]
-            };
-            // 为echarts对象加载数据 
-            chart<%= index + 1 %>.setOption(option<%= index + 1 %>); 
-          <% end %>
-        }
-    );
-    
-</script>
+                    xAxis: [{
+                        type: 'category',
+                        data: <%= item[:top10][:name].to_json.html_safe %>
+                    }],
+                    yAxis: [{
+                        type : 'value'
+                    }],
+                    series: [{
+                        "name":"得票数",
+                        "type":"bar",
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: true
+                                }
+                            }
+                        },
+                        data: <%= item[:top10][:count].to_json.html_safe %>
+                    }]
+                };
+                // 为echarts对象加载数据 
+                chart<%= index + 1 %>.setOption(option<%= index + 1 %>); 
+              <% end %>
+            }
+        );
+        
+    </script>
+<% else %>
+    <div class="row">
+        <%= 2.times do |index| %>
+            <div class="col-xs-6">
+                <div id="chart<%= index + 1 %>" style="height:200px"></div>
+            </div>
+        <% end %>
+    </div>
+    <div class="row">
+        <%= 2.times do |index| %>
+            <div class="col-xs-6">
+                <div id="chart<%= index + 3 %>" style="height:200px"></div>
+            </div>
+        <% end %>
+    </div>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths:{ 
+                'echarts' : 'http://echarts.baidu.com/build/echarts',
+                'echarts/chart/bar' : 'http://echarts.baidu.com/build/echarts'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+              <% @top10_candidates_all_rounds.each_with_index do |item, index| %>
+                // 基于准备好的dom，初始化echarts图表
+                var chart<%= index + 1 %> = ec.init(document.getElementById('chart<%= index + 1 %>')); 
+                var option<%= index + 1 %> = {
+                    title: {
+                        text: "<%= item[:title] %>"
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        data: <%= item[:top10][:name].to_json.html_safe %>
+                    }],
+                    yAxis: [{
+                        type : 'value'
+                    }],
+                    series: [{
+                        "name":"得票数",
+                        "type":"bar",
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: true
+                                }
+                            }
+                        },
+                        data: <%= item[:top10][:count].to_json.html_safe %>
+                    }]
+                };
+                // 为echarts对象加载数据 
+                chart<%= index + 1 %>.setOption(option<%= index + 1 %>); 
+              <% end %>
+            }
+        );
+        
+    </script>
+<% end %>

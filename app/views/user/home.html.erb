@@ -3,7 +3,7 @@
 <br>
 <div class="row center-block text-center">
 	<% @rounds.each do |round| %>
-		<input type="radio" name="round" id="round<%= round[:id] %>" value="<%= round[:id] %>" <%= 'checked' if round[:id] == 1 %>>
+		<input type="radio" name="round" id="round<%= round[:id] %>" value="<%= round[:id] %>" <%= 'checked' if (round[:id] == 0 || round[:id] == 1) %>>
 		<label for="round<%= round[:id] %>">
 			<span class="pull-left"><%= round[:id] %></span>）<%= round[:title] %>
 		</label>

@@ -1,17 +1,21 @@
 class UserController < ApplicationController
   def enroll
-    if params[:half].nil?
-      @user = User.new
-      @signin = params[:signin]
-    else
-      half = params[:half]
-      # 判断cookies是否存在
-      if !cookies[:mobile].nil?
-        @user = User.find_by_mobile(cookies[:mobile])
-        redirect_to user_home_path(@user, :half => half)
-      else
+    if params[:op_key] == "smw"
+      if params[:half].nil?
         @user = User.new
+        @signin = params[:signin]
+      else
+        half = params[:half]
+        # 判断cookies是否存在
+        if !cookies[:mobile].nil?
+          @user = User.find_by_mobile(cookies[:mobile])
+          redirect_to user_home_path(@user, :half => half)
+        else
+          @user = User.new
+        end
       end
+    else
+      redirect_to "http://www.baidu.com"
     end
   end
 
@@ -41,6 +45,7 @@ class UserController < ApplicationController
       # 注册
       @user = User.new(user_params)
       if @user.save
+        cookies[:mobile] = user_params[:mobile]
         redirect_to user_signin_path(@user)
       else
         render :enroll
@@ -53,7 +58,7 @@ class UserController < ApplicationController
     if params[:half] == "1"
       @rounds = [{id: 1, title: "儿科-青春偶像"}, {id: 2, title: "儿科-青春偶像"}, {id: 3, title: "五大-青春偶像"}, {id: 4, title: "五大-青春偶像"}]
     elsif params[:half] == "2"
-      @rounds = [{id: 5, title: "儿科-青春偶像"}, {id: 6, title: "儿科-青春偶像"}, {id: 7, title: "五大-青春偶像"}, {id: 8, title: "五大-青春偶像"}]
+      @rounds = [{id: 5, title: "儿科-最具风度奖"}, {id: 6, title: "儿科-最具风韵奖"}, {id: 7, title: "五大-最具风度奖"}, {id: 8, title: "五大-最具风韵奖"}]
     else
       @rounds = [{id: 0, title: "投票测试"}]
     end
