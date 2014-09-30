@@ -58,7 +58,7 @@ class UserController < ApplicationController
     if params[:half] == "1"
       @rounds = [{id: 1, title: "儿科-青春偶像"}, {id: 2, title: "儿科-青春偶像"}, {id: 3, title: "五大-青春偶像"}, {id: 4, title: "五大-青春偶像"}]
     elsif params[:half] == "2"
-      @rounds = [{id: 5, title: "儿科-最具风度奖"}, {id: 6, title: "儿科-最具风韵奖"}, {id: 7, title: "五大-最具风度奖"}, {id: 8, title: "五大-最具风韵奖"}]
+      @rounds = [{id: 5, title: "五大-最具风度"}, {id: 6, title: "五大-最具风韵"}, {id: 7, title: "儿科-最具风度"}, {id: 8, title: "儿科-最具风韵"}]
     else
       @rounds = [{id: 0, title: "投票测试"}]
     end
