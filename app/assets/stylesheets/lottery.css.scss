@@ -1,0 +1,142 @@
+#body-container {
+	width:1024px;
+	margin:auto;
+	min-height:768px
+}
+
+#admin-lottery-page {
+	position:relative;
+	min-height:768px;
+	font-weight:bold;
+	background:image-url('jmvote-kv.png') no-repeat;
+	padding-top: 280px;
+}
+
+#admin-lottery-page .f{
+	margin-bottom: 220px;
+}
+#admin-lottery-page .A-B {
+	width:750px;
+	margin:auto;
+	height:182px;
+	background:#fff
+}
+#admin-lottery-page .A-B .t {
+	text-indent:30px;
+	height:60px;
+	line-height:60px;
+	font-size:28px;
+	color:#fff;
+	background:#c45138;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px
+}
+#admin-lottery-page .t1 {
+	text-indent:0px;
+	height:60px;
+	line-height:60px;
+	font-size:28px;
+	background:#fff;
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px
+}
+#admin-lottery-page .x-C {
+	text-align:center;
+	border-left:1px solid #b49ea4;
+	border-right:1px solid #b49ea4;
+	border-bottom:1px solid #b49ea4;
+}
+#admin-lottery-page .D-E {
+	vertical-align:top;
+	display:inline-block;
+	margin:20px 10px;
+	width:55px;
+	height:75px;
+	line-height:75px;
+	text-align:center;
+	background:#1b1b1b;
+	border-radius:3px;
+	color:#fff;
+	position:relative;
+	overflow:hidden;
+	font-size:36px;
+	font-weight:bold
+}
+#admin-lottery-page .D-E .F {
+	position:absolute;
+	width:55px
+}
+#admin-lottery-page .D-E .F .G {
+	height:75px
+}
+#admin-lottery-page .D-E .F.H {
+-webkit-transition:top .001s linear
+}
+#admin-lottery-page .D-E .F.I {
+-webkit-transition:top .01s linear
+}
+#admin-lottery-page .J {
+	height:10px;
+	background:#f6f6f6
+}
+#admin-lottery-page .K {
+	color:#242424;
+	font-size:20px;
+	width:750px;
+	height:60px;
+	line-height:60px;
+	background:#f0f0f0;
+	margin:0 auto 20px;
+	border:1px solid #dcdcdc;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px
+}
+#admin-lottery-page .K .L {
+	width:65%;
+	text-indent:30px
+}
+#admin-lottery-page .K .M-N, #admin-lottery-page .K .M-A {
+	color:#b7422c;
+	font-size:30px;
+	padding:0 5px
+}
+#admin-lottery-page .K .O-E {
+	text-align:center
+}
+#admin-lottery-page .K .O-E button {
+	cursor:pointer;
+	width:140px;
+	height:44px;
+	line-height:44px;
+	background:#c35038;
+	border:1px solid #a53b28;
+	border-radius:2px;
+	color:#fff;
+	font-size:22px;
+	margin-right:10px;
+	font-weight:bold
+}
+#admin-lottery-page .U {
+	width:100px;
+	height:100px;
+	color:#fff;
+	position:absolute;
+	bottom:0;
+	right:0;
+	display:block;
+	line-height:100px;
+	text-align:center
+}
+.lucky {
+	font-size: 50px;
+  text-align:center;
+  height:120px;
+  width:730px;
+  border:0px;
+}
+.luckyman {
+	height:30px;
+	width:280px;
+	border:0px solid red;
+	font-size:25;
+}

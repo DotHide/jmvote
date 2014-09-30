@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'user/enroll'
   get 'user/home/:id' => 'user#home', as: 'user_home'
   get 'user/signin/:id' => 'user#signin', as: 'user_signin'
-
+  get 'user/lottery' => 'user#lottery', as: 'user_lottery'
   post 'user/do_enroll'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -63,6 +63,10 @@ class UserController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def lottery
+    @user = User.all
+  end
+
   private 
     def user_params
       params.require(:user).permit(:name, :mobile, :class_name)
