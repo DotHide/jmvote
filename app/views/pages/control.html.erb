@@ -1,0 +1,8 @@
+<div class="row form-group text-center">
+	<%= link_to '投票结果（上半场）', vote_results_path, :class => 'btn btn-primary btn-lg' %>
+	<%= link_to '投票结果（下半场）', vote_results_path(:half => '2'), :class => 'btn btn-primary btn-lg' %>
+</div>
+
+<div class="row form-group text-center">
+	<%= link_to '抽奖', user_lottery_path, :class => 'btn btn-danger btn-lg' %>
+</div>
