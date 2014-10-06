@@ -57,7 +57,7 @@ class VoteController < ApplicationController
       top10_candidates_name = []
       top10_candidates_all_round = []
       round = 0;
-      sql_hash = Vote.select("candidate_id").where(:class_name => get_class_no_by_round(round.to_s), :round => round).group('candidate_id').order('count_candidate_id').limit(10).count
+      sql_hash = Vote.select("candidate_id").where(:class_name => get_class_no_by_round(round.to_s), :round => round).group('candidate_id').order('count_candidate_id desc').limit(10).count
       sql_hash.each_pair do |key, value|
           top10_candidates_vote_count << value
           top10_candidates_name << Candidate.find(key).name
@@ -78,7 +78,7 @@ class VoteController < ApplicationController
         else
           round = 0
         end
-        sql_hash = Vote.select("candidate_id").where(:class_name => get_class_no_by_round(round.to_s), :round => round).group('candidate_id').order('count_candidate_id').limit(10).count
+        sql_hash = Vote.select("candidate_id").where(:class_name => get_class_no_by_round(round.to_s), :round => round).group('candidate_id').order('count_candidate_id desc').limit(10).count
         
         # 如果得出的结果不足10人，则在图标上显示"-"，以用于站位
         # if sql_hash.count < 10
