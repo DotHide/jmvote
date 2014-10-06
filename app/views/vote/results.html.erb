@@ -21,6 +21,14 @@
             function (ec) {
               <% @top10_candidates_all_rounds.each_with_index do |item, index| %>
                 // 基于准备好的dom，初始化echarts图表
+                <% names = [''] %>
+                <% counts = [''] %>
+                <% if !item[:top].nil? && item[:top].count > 0 %>
+                    <% names = item[:top][:name] %>
+                <% end %>
+                <% if !item[:top].nil? && item[:top].count > 0 %>
+                    <% counts = item[:top][:count] %>
+                <% end %>
                 var chart<%= index + 1 %> = ec.init(document.getElementById('chart<%= index + 1 %>')); 
                 var option<%= index + 1 %> = {
                     title: {
@@ -28,7 +36,7 @@
                     },
                     xAxis: [{
                         type: 'category',
-                        data: <%= item[:top][:name].to_json.html_safe if !item[:top].nil? && item[:top].count > 0 %>
+                        data: <%= names.to_json.html_safe || [''] %>
                     }],
                     yAxis: [{
                         type : 'value'
@@ -43,7 +51,7 @@
                                 }
                             }
                         },
-                        data: <%= item[:top][:count].to_json.html_safe if !item[:top].nil? && item[:top].count > 0 %>
+                        data: <%= counts.to_json.html_safe || [''] %>
                     }]
                 };
                 // 为echarts对象加载数据 
@@ -85,6 +93,14 @@
             ],
             function (ec) {
               <% @top10_candidates_all_rounds.each_with_index do |item, index| %>
+                <% names = [''] %>
+                <% counts = [] %>
+                <% if !item[:top].nil? && item[:top].count > 0 %>
+                    <% names = item[:top][:name] %>
+                <% end %>
+                <% if !item[:top].nil? && item[:top].count > 0 %>
+                    <% counts = item[:top][:count] %>
+                <% end %>
                 // 基于准备好的dom，初始化echarts图表
                 var chart<%= index + 1 %> = ec.init(document.getElementById('chart<%= index + 1 %>')); 
                 var option<%= index + 1 %> = {
@@ -93,7 +109,7 @@
                     },
                     xAxis: [{
                         type: 'category',
-                        data: <%= item[:top][:name].to_json.html_safe if item[:top].count > 0 %>
+                        data: <%= names.to_json.html_safe || [''] %>
                     }],
                     yAxis: [{
                         type : 'value'
@@ -108,7 +124,7 @@
                                 }
                             }
                         },
-                        data: <%= item[:top][:count].to_json.html_safe if item[:top].count > 0 %>
+                        data: <%= counts.to_json.html_safe || [] %>
                     }]
                 };
                 // 为echarts对象加载数据 

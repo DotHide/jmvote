@@ -64,7 +64,7 @@ class VoteController < ApplicationController
           top10_candidates_all_round = {:count => top10_candidates_vote_count, :name => top10_candidates_name}
       end
       vote_title = "#{get_class_name_by_round(round.to_s)} 丨 第 #{round} 轮 - #{get_title_by_round(round.to_s)}"
-      @top10_candidates_all_rounds << { top10: top10_candidates_all_round, title: vote_title }
+      @top10_candidates_all_rounds << { top: top10_candidates_all_round, title: vote_title }
     else
       4.times do |index|
         top10_candidates_vote_count = []
